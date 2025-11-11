@@ -223,35 +223,29 @@ body {
   filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.5));
 }
 
-/* ===== MOBILE RESPONSIVE FIXES ===== */
+/* ===== FIX: chat and local video overlapping bottom buttons ===== */
 @media (max-width: 768px) {
   .chatRoom {
     width: 80vw;
     right: 10vw;
     top: 5vh;
-    bottom: auto;
-    height: 80vh;
+    bottom: 10vh; /* stop above buttons */
+    height: auto; /* let it adapt naturally */
+    max-height: 75vh; /* never exceed this */
+    overflow-y: auto; /* scroll instead of hiding buttons */
     padding: 0.75rem;
-    font-size: 0.9rem;
   }
 
-  /* scale down the local video so it doesn’t cover buttons */
   .localVideo {
-    bottom: 4.5rem;
-    left: 1rem;
-    width: 30vw;
+    width: 35vw;
     height: 18vh;
-    border-radius: 0.5rem;
+    bottom: 5rem;
+    left: 1rem;
   }
 
   .buttonContainers {
+    bottom: 1rem;
     gap: 1.25rem;
-    bottom: 0.5rem;
-  }
-
-  /* shrink icons a little */
-  .buttonContainers svg {
-    font-size: 1.8rem;
   }
 }
 
@@ -259,11 +253,13 @@ body {
   .chatRoom {
     width: 85vw;
     right: 7vw;
-    height: 75vh;
+    bottom: 12vh; /* leave more room for icons */
+    max-height: 70vh;
   }
 
   .localVideo {
-    width: 38vw;
+    width: 40vw;
     height: 16vh;
+    bottom: 5rem;
   }
 }
