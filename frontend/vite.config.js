@@ -10,7 +10,7 @@ export default defineConfig({
     outDir: "dist",
   },
   publicDir: "public",
-  // 🔥 custom plugin to always copy _redirects into dist
+  // custom plugin to always copy _redirects into dist
   define: {},
   esbuild: {},
   logLevel: "info",
