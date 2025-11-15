@@ -85,9 +85,11 @@ const getUserHistory = async (req, res) => {
 
 const addToHistory = async (req, res) => {
   const { token, meeting_code } = req.body;
+  console.log("REQUEST BODY:", req.body);
 
   try {
     const user = await User.findOne({ token: token });
+    console.log("FOUND USER:", user);
 
     if (!user) {
       return res
